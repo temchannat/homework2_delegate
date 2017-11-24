@@ -12,23 +12,24 @@ class ResultViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
    
+    var username: String?
+    var password: String?
+    var email: String?
+    var phoneNumber: String?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+       nameLabel.text = username!
+        
     }
 
   
+    @IBOutlet weak var backtoSignUpButton: UIButton!
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func backToSignUpButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
 }

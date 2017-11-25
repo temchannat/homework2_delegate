@@ -37,8 +37,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         let usernameCount = usernameTextField.text!.characters.count
         let email = emailTextField.text!
-        if  usernameCount <= 5 || usernameCount > 30 {
-            alert(title: "Invalid Username", message: "USERNAME range is in between 5 and 30")
+        
+      
+        if  usernameCount <= 3 || usernameCount > 15 {
+            alert(title: "Invalid Username", message: "USERNAME range is in between 3 and 15")
             usernameTextField.becomeFirstResponder()
             return false
         }
@@ -53,7 +55,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let resultViewController = segue.destination as? ResultViewController else { return }
-        resultViewController.username = usernameTextField.text
+        resultViewController.username = usernameTextField.text?.uppercased()
     }
     
     
@@ -63,7 +65,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         usernameTextField.text?.removeAll()
         passwordTextField.text?.removeAll()
         emailTextField.text?.removeAll()
+        phoneNumberTextField.leftView = nil
         phoneNumberTextField.text?.removeAll()
+        phoneNumberTextField.placeholder = "(+855) 012-345-6789"
+
     }
 
     

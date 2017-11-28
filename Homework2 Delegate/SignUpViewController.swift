@@ -37,8 +37,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         let usernameCount = usernameTextField.text!.characters.count
         let email = emailTextField.text!
-        
-      
         if  usernameCount <= 3 || usernameCount > 15 {
             alert(title: "Invalid Username", message: "USERNAME range is in between 3 and 15")
             usernameTextField.becomeFirstResponder()
@@ -61,7 +59,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func clearTextFieldsWhenUnWind(_ sender: UIStoryboardSegue) {
         // if the source come from ResultViewControoler then clear the textFields
-        guard let resultViewController = sender.source as? ResultViewController else { return }
+//        guard let resultViewController = sender.source as? ResultViewController else { return }
         usernameTextField.text?.removeAll()
         passwordTextField.text?.removeAll()
         emailTextField.text?.removeAll()
